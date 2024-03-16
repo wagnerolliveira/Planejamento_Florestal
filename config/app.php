@@ -181,6 +181,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        
 
         /*
          * Package Service Providers...
@@ -209,7 +210,10 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'Vite' => \Illuminate\Support\Facades\Vite::class,
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
+
+    
 
 ];
