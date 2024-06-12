@@ -56,6 +56,15 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+
+
+    'api_url' => env('APP_DEBUG') ? env('API_URL_LOCAL') : env('API_URL_PRODUCTION'),
+    /*
+      Tokens API Forest Planning
+    */
+    'token_ADMIN'=>env('API_TOKEN_ADMIN'),
+    
+
     'asset_url' => env('ASSET_URL'),
 
     /*
@@ -211,7 +220,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'Vite' => \Illuminate\Support\Facades\Vite::class,
-        // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Helper' => App\Helpers\Helper::class,
     ])->toArray(),
 
     

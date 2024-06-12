@@ -1,0 +1,229 @@
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap);
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Montserrat, sans-serif;
+}
+
+/*---------------------------------------------*/
+a {
+    font-family: Montserrat;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666666;
+    margin: 0px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+}
+
+a:focus {
+    outline: none !important;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #6675df;
+}
+
+/*---------------------------------------------*/
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
+}
+
+p {
+    font-family: Montserrat;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666666;
+    margin: 0px;
+}
+
+ul, li {
+    margin: 0px;
+    list-style-type: none;
+}
+
+.main_content {
+    border: 1px solid #d8dcde;
+    border-radius: 50px;
+    padding: 1rem;
+    position: relative;
+}
+
+.header_jobs {
+    padding-bottom: 2px;
+}
+
+.form-control {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-clip: padding-box;
+    background-color: var(--bs-form-control-bg);
+    border: 1px solid var(--bs-gray-300);
+    border-radius: 0.625rem;
+    box-shadow: 0 0 transparent;
+    color: var(--bs-body-color);
+    display: block;
+    font-size: .75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 0.625rem 0.75rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    width: 100%;
+}
+
+.form-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-clip: padding-box;
+    background-color: var(--bs-form-control-bg);
+    border: 1px solid var(--bs-gray-300);
+    border-radius: 0.625rem;
+    box-shadow: 0 0 transparent;
+    color: var(--bs-body-color);
+    display: block;
+    font-size: .75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 0.625rem 0.75rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    width: 100%;
+}
+
+
+.form-label {
+    font-size: .75rem;
+    font-weight: 700;
+    margin-bottom: 0.3125rem;
+}
+
+label {
+    display: inline-block;
+    cursor: default;
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+}
+.taEsquerda{
+    text-align: left;
+}
+.taDireita{
+    text-align: right;
+}
+.taCentro{
+    text-align: center;
+}
+
+.hint {
+    position: relative;
+    display: inline-block;
+}
+
+select[readonly] {
+    background: #eee; /*Simular campo inativo - Sugestão @GabrielRodrigues*/
+    pointer-events: none;
+    touch-action: none;
+  }
+  
+.hintText {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -40px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.hintEsquerdaSize {
+    width: 130px;
+    top: -10px;
+    right: 36px;
+}
+.hintText::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.hint:hover .hintText {
+    visibility: visible;
+    opacity: 1;
+}
+
+.hintTextEsquerda {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgb(119, 119, 119);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+    top: 5px;
+    right: 70px;
+}
+
+.hintTextEsquerda::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+}
+
+.hint:hover .hintTextEsquerda {
+    visibility: visible;
+    opacity: 1;
+}
+
+.edit_fase_btn .edit_task_btn{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.tr_btn{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.graficos {
+    padding:1.5rem;
+}
+.grafico {
+    padding: 1.5rem; 
+    border-radius: 10px;
+}
+.text-form {
+    min-height: 70px;
+}

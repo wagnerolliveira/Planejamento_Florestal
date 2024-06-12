@@ -18,6 +18,7 @@ return [
         'passwords' => 'users',
     ],
 
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -108,4 +109,5 @@ return [
 
     'password_timeout' => 10800,
 
+    
 ];

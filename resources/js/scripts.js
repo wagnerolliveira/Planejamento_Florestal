@@ -1,57 +1,91 @@
-(function($) {
-    "use strict"; // Start of use strict
-  
-    // Toggle the side navigation
-    $("#sidebarToggle, #sidebarToggleTop").on('click', function(e) {
-      $("body").toggleClass("sidebar-toggled");
-      $(".sidebar").toggleClass("toggled");
-      if ($(".sidebar").hasClass("toggled")) {
-        $('.sidebar .collapse').collapse('hide');
-      };
-    });
-  
-    // Close any open menu accordions when window is resized below 768px
-    $(window).resize(function() {
-      if ($(window).width() < 768) {
-        $('.sidebar .collapse').collapse('hide');
-      };
-      
-      // Toggle the side navigation when window is resized below 480px
-      if ($(window).width() < 480 && !$(".sidebar").hasClass("toggled")) {
-        $("body").addClass("sidebar-toggled");
-        $(".sidebar").addClass("toggled");
-        $('.sidebar .collapse').collapse('hide');
-      };
-    });
-  
-    // Prevent the content wrapper from scrolling when the fixed side navigation hovered over
-    $('body.fixed-nav .sidebar').on('mousewheel DOMMouseScroll wheel', function(e) {
-      if ($(window).width() > 768) {
-        var e0 = e.originalEvent,
-          delta = e0.wheelDelta || -e0.detail;
-        this.scrollTop += (delta < 0 ? 1 : -1) * 30;
-        e.preventDefault();
-      }
-    });
-  
-    // Scroll to top button appear
-    $(document).on('scroll', function() {
-      var scrollDistance = $(this).scrollTop();
-      if (scrollDistance > 100) {
-        $('.scroll-to-top').fadeIn();
-      } else {
-        $('.scroll-to-top').fadeOut();
-      }
-    });
-  
-    // Smooth scrolling using jQuery easing
-    $(document).on('click', 'a.scroll-to-top', function(e) {
-      var $anchor = $(this);
-      $('html, body').stop().animate({
-        scrollTop: ($($anchor.attr('href')).offset().top)
-      }, 1000, 'easeInOutExpo');
-      e.preventDefault();
-    });
-  
-  })(jQuery); // End of use strict
-  
+function ordernaTAB(n, tab = 'tab') {
+    ShowSpinModal(tab);
+    setTimeout(function () {
+        var myArray = [];    
+        rows = document.getElementById(tab).getElementsByTagName("TR");
+        lines = rows[0].getElementsByTagName("TH");
+        for (i = 0; i < (lines.length - 1); i++) {
+            if (String(n) != String(i)){                       
+                tdSort = rows[0].getElementsByTagName("TH")[i]; 
+                $('i', tdSort).removeClass("fa-sort-up");
+                $('i', tdSort).removeClass("fa-sort-down");
+                $('i', tdSort).addClass("fa-sort");
+            }
+        }
+
+        tdSort = rows[0].getElementsByTagName("TH")[n];
+
+        var order = 'asc';
+        if($('i', tdSort).hasClass("fa-sort")){
+            $('i', tdSort).removeClass("fa-sort");
+            $('i', tdSort).addClass("fa-sort-up");
+            
+        } else if ($('i', tdSort).hasClass("fa-sort-down")){
+            $('i', tdSort).removeClass("fa-sort-down");
+            $('i', tdSort).addClass("fa-sort-up");
+
+        } else if ($('i', tdSort).hasClass("fa-sort-up")){
+            $('i', tdSort).removeClass("fa-sort-up");
+            $('i', tdSort).addClass("fa-sort-down");
+            order = 'desc';
+        }
+        var QtdeRows = rows.length-2;
+
+        for (i = 1; i < (rows.length - 1); i++) {
+            x = rows[i].getElementsByTagName("TD")[n];
+            var xAux = x.innerHTML;
+            xAux = DateToInt(xAux);
+
+            myArray.push(((xAux).replace(".", "").replace(",", "."))+idx+i);
+        }  
+
+        var sortedArray = quick_Sort(myArray, order);
+
+        var TRtotal = rows[rows.length-1];
+        for(valor in sortedArray){
+            let TRNova = document.createElement("tr");
+            var value = sortedArray[valor];
+            value = value.substring(value.indexOf(idx));        
+            value = parseInt(value.replace(idx, ""));
+
+            TRNova.innerHTML = rows[value].innerHTML;
+            TRNova.id = rows[value].id;
+            TRNova.name = rows[value].name;
+            rows[1].parentNode.appendChild(TRNova);
+        }
+        rows[1].parentNode.appendChild(TRtotal);
+
+        for (i = QtdeRows; i > 0; i--) {
+            rows[i].parentNode.removeChild(rows[i]);
+        }
+        
+        HideSpinModal();
+    }, 50);
+}
+
+function quick_Sort(origArray, order) {
+	if (origArray.length <= 1) { 
+		return origArray;
+	} else {
+
+		var left = [];
+		var right = [];
+		var newArray = [];
+        var pivot = origArray.pop();
+        var length = origArray.length;
+        var qsLeft = true;
+
+		for (var i = 0; i < length; i++) {
+            var x = origArray[i].substring(0, origArray[i].indexOf(idx));
+            var y = pivot.substring(0, pivot.indexOf(idx));          
+
+            x = (isNaN(x)? origArray[i]: parseFloat(x));
+            y = (isNaN(y)? pivot: parseFloat(y));            
+
+            qsLeft = ((order == 'asc')? (x <= y): (x >= y));
+            ((qsLeft)? left.push(origArray[i]): right.push(origArray[i]));
+		}
+
+		return newArray.concat(quick_Sort(left, order), pivot, quick_Sort(right, order));
+	}
+}

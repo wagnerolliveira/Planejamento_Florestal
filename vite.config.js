@@ -7,14 +7,17 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/fonts/materialdesignicons.css',
-                'resources/css/dashboard.css',
+                'resources/css/layout_dashboard.css',
                 'resources/css/home.css',
                 'resources/css/auth.css',
                 'resources/sass/app.scss',
                 'resources/js/app.js',
                 'resources/js/home.js',
                 'resources/js/auth/auth.js',
-                'resources/js/scripts.js'
+                'resources/js/scripts.js',
+                'resources/css/job.css',
+                'resources/css/restrictions.css',
+                'resources/css/zones.css'
             ],
             refresh: true,
         }),

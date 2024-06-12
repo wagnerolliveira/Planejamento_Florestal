@@ -1,0 +1,41 @@
+.sidebar, .offcanvas-body, .offcanvas-header{
+  background-color: #50c878;
+  color: #fff;
+}
+#sidebarMenu{
+  min-height: 100vh;
+}
+.sidebar .nav-link {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+}
+.sidebar .nav-link.active, .sidebar .nav-link.active:hover {
+  color: #fff;
+}
+.collapse-item{
+  text-decoration: none;
+  line-height: 2rem;
+  font-weight: 500;
+}
+.navbar{
+  background-color: #50c878;
+}
+
+.collapsed{
+  background-color: #50c878;
+}
+
+@media (min-width: 1440px) {
+  .sidebar .nav-link {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar .offcanvas-lg {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 48px;
+  }
+}
