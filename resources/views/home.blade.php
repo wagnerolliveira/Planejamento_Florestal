@@ -17,12 +17,11 @@
                 <li class="nav-item"><a class="nav-link" href="#services">Como funciona</a></li>
                 <li class="nav-item"><a class="nav-link" href="#about">Vantagens</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
-                {{-- {% if user.is_authenticated %} --}}
-                @auth
+                @if ($user)
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Olá, {{ auth()->user()->name }}!</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Olá, {{$user['user_name']}}!</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href={{ route('dashboard') }}>Dashboard</a></li>
+                            <li><a class="dropdown-item" href={{ route('jobs') }}>Painel</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href={{ route('logout') }}>Sair</a></li>
                         </ul>

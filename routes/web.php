@@ -1,5 +1,6 @@
 <?php
 
+use App\Helpers\Helper;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -18,6 +19,8 @@ use App\Http\Controllers\ZoneController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/api/get-token', [Helper::class, 'getToken']);
+
 
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
@@ -28,8 +31,6 @@ Route::post('register', [RegisterController::class, 'register']);
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 
-Route::get('/analises', [JobController::class, 'index'])->name('jobs');
-
-Route::get('/restrictions', [RestrictionController::class, 'index'])->name('restrictions');
+Route::get('/jobs', [JobController::class, 'index'])->name('jobs');
 
 Route::get('/zones', [ZoneController::class, 'index'])->name('zones');

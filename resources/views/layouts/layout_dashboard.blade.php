@@ -2,6 +2,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
         <title>{{ config('app.name', 'Laravel') }} @yield('title')</title>
@@ -18,6 +19,7 @@
         @yield('styles')
         
         <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
         @vite(['resources/js/app.js'])
         @vite(['resources/js/scripts.js'])
     </head>
@@ -45,8 +47,8 @@
                         <div class="offcanvas-header">
                             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                                 <span class="app-brand-logo demo">
-                                    <img class="d-none d-md-block mx-auto" height="40" src={{ Vite::asset('resources/images/Forestfyw.png') }} alt="Forestfy">
-                                    <img class="d-block d-md-none mx-auto" height="40" src={{ Vite::asset('resources/images/logoW.png') }} alt="Forestfy">
+                                    <img class="d-block d-md-block mx-auto" height="40" src={{ Vite::asset('resources/images/Forestfyg.png') }} alt="Forestfy">
+                                    <img class="d-none d-md-none mx-auto" height="40" src={{ Vite::asset('resources/images/logoforestfy.png') }} alt="Forestfy">
                                 </span>
                             </a>
                             <button type="button" class="btn-close"
@@ -55,23 +57,6 @@
                         </div>
                         <div class="offcanvas-body d-md-flex flex-column p-2 pt-lg-3 overflow-y-auto">
                             <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="{{ route('dashboard') }}">
-                                        <i class="bi bi-bar-chart-fill"></i>
-                                        <span>Dashboard</span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-uppercase">
-                                <span>Funções</span>
-                            </h6>
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link" href={{ route('restrictions') }}>
-                                        <i class="bi bi-tools"></i>
-                                        <span>Restrições</span>
-                                    </a>
-                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href={{ route('jobs') }}>
                                         <i class="bi bi-clipboard2-data-fill"></i>
@@ -87,29 +72,8 @@
                                 </li>
                                 
                             </ul>
-
-                        
-                            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-uppercase">
-                                <span>Relatórios</span>
-                            </h6>
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <i class="bi bi-file-earmark-text-fill"></i>
-                                        <span>Produtividade</span>
-                                    </a>
-                                </li>
-                            </ul>
-            
-                            <hr class="my-3">
             
                             <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link d-flex align-items-center gap-2" href="#">
-                                        <i class="bi bi-gear"></i>
-                                        <span>Configurações</span>
-                                    </a>
-                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link d-flex align-items-center gap-2" href="{{ route('logout') }}">
                                         <i class="bi bi-door-open-fill"></i>

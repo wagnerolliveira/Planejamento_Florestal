@@ -1,6 +1,9 @@
+main{
+  background-color: #fafafa;
+}
 .sidebar, .offcanvas-body, .offcanvas-header{
-  background-color: #50c878;
-  color: #fff;
+  background-color: #fff;
+  color: #50c878;
 }
 #sidebarMenu{
   min-height: 100vh;
@@ -8,10 +11,10 @@
 .sidebar .nav-link {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #fff;
+  color: #50c878;
 }
 .sidebar .nav-link.active, .sidebar .nav-link.active:hover {
-  color: #fff;
+  color: #50c878;
 }
 .collapse-item{
   text-decoration: none;
@@ -39,3 +42,4 @@
     top: 48px;
   }
 }
+

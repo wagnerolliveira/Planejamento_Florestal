@@ -89,3 +89,8 @@ function quick_Sort(origArray, order) {
 		return newArray.concat(quick_Sort(left, order), pivot, quick_Sort(right, order));
 	}
 }
+
+function removerLinha(botao) {
+    const linha = botao.closest('tr');
+    linha.remove();
+}

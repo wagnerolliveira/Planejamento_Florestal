@@ -12,6 +12,8 @@ export default defineConfig({
                 'resources/css/auth.css',
                 'resources/sass/app.scss',
                 'resources/js/app.js',
+                'resources/js/job.js',
+                'resources/js/zone.js',
                 'resources/js/home.js',
                 'resources/js/auth/auth.js',
                 'resources/js/scripts.js',
